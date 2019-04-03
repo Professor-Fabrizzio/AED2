@@ -69,4 +69,15 @@ void inserir(Arvore* a, int chave){
 
 }
 ```
+Para facilitar a criação de um novo nó, a função criarNó foi desenvolvida para realizar a preparação de um novo nó:
 
+```C
+No* criarNo(int chave){
+
+  No* n = malloc(sizeof(No));
+  n->chave = chave;
+  n->esquerda = NULL;
+  n->direita = NULL;
+
+}
+```
