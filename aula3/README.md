@@ -82,5 +82,21 @@ No* criarNo(int chave){
 }
 ```
 
-Todos os códigos acima estão disponíveis no arquivo de exemplo no link:
+Alguns algoritmos para árvores também são bastante úteis como:
+* Menor Chave
+* Maior Chave
+* Altura da árvore **ideal**
+
+Além disto, uma estratégia muito importante é o caminhamento de Euler que consiste em visitar os nós sempre à esquerda, quando isto não for possível, visitar à direita e retomar à esquerda novamente. Quando tanto a esquerda quanto a direita tiver sido visitada, retorna-se ao nó antecessor e tenta-se visitar à direita.
+
+Esta estratégia é útil para algoritmos como:
+* Contar nós da árvore
+* Altura de uma árvore **não ideal**
+* Listar os nós:
+  * Em pré-ordem
+  * Em ordem
+  * Em pós-ordem
+
+Alguns dos códigos acima estão disponíveis no arquivo de exemplo no link:
 [Exemplo1](exemplo1/exemplo-arvore1.c)
+
