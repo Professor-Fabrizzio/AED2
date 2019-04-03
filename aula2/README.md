@@ -1,4 +1,3 @@
-{% include lib/mathjax.html %}
 
 # AED2
 Algoritmos e Estrutura de Dados 2
@@ -8,13 +7,4 @@ Algoritmos e Estrutura de Dados 2
 Nesta aula é apresentado o conceito de árvore, árvore binária, representações, características, etc.
 Também foi provado matematicamente que uma árvore binária **ideal** possui altura máxima igual a:
 
-```math #yourmathlabel
-
-$$H = log_2(N + 1)$$
-
-```
-
-```math
-SE = \frac{\sigma}{\sqrt{n}}
-```
-
+![](https://latex.codecogs.com/svg.download?%5CLARGE%20H%20%3D%20log_2%28N+1%29)
