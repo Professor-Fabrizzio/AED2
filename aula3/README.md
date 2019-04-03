@@ -81,3 +81,6 @@ No* criarNo(int chave){
 
 }
 ```
+
+Todos os códigos acima estão disponíveis no arquivo de exemplo no link:
+[Exemplo1](exemplo1/exemplo-arvore1.c)
