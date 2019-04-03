@@ -12,3 +12,7 @@ $$H = log_2(N + 1)$$
 
 ```
 
+```math
+SE = \frac{\sigma}{\sqrt{n}}
+```
+
