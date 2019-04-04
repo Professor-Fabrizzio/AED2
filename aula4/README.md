@@ -103,3 +103,6 @@ Esta estratégia é útil para algoritmos como:
 Alguns dos códigos acima estão disponíveis no arquivo de exemplo no link:
 [Exemplo1](exemplo1/exemplo-arvore1.c)
 
+# Atividade 2
+
+Realizar os exercícios postados lista da disciplina no URIOnlineJudge.

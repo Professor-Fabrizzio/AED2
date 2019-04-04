@@ -2,102 +2,110 @@
 # AED2
 Algoritmos e Estrutura de Dados 2
 
-## Aula 3
+## Aula 7
 
-Nesta aula é apresentado o conceito de árvore binária de busca e alguns algoritmos básicos.
-A árvore é composta de nós com filhos à equerda e direita. Sua estrutura de dados pode ser representada como:
+Nesta aula são apresentadas algumas estratégias de implementação da árvore binária de busca.
+
+### Estratégia 1
+
+Nesta estratégia o nó da árvore, ao invés de possuir dois ponteiros (esquerda e direita), possui um vetor de duas posições, em que as posições 0 e 1 são os ponteiros esquera e direita, respectivamente.
 
 ```C
-typedef struct no{
+#define esquerda 0
+#define direita 1
+
+typedef struct no
+{
   int chave;
-  struct no* esquerda;
-  struct no* direita;
+  struct no *filho[2]; // 0 - Esquerda; 1 - Direita
 } No;
 ```
-
-enquanto a árvore contém um nó que representa a raíz:
-
-```C
-typedef struct arvore{
-  No* raiz;
-} Arvore;
-```
-
-É recomendável que a árvore seja inicializada, para isto, basta inicializar o nó raiz como nulo:
+O objetivo desta estratégia é permitir associar posições baseados em números e não em nomes. Observe como fica a função para criar nó:
 
 ```C
-void inicializar(Arvore* a){
-  a->raiz = NULL;
+No *criarNo(int chave){
+  No *n = malloc(sizeof(No));
+  n->chave = chave;
+  n->filho[esquerda] = NULL;
+  n->filho[direita] = NULL;
+  return n;
 }
 ```
 
-Quando um nó é inserido na árvore binária temos duas alternativas:
-* A árvore está vazia - Criar um novo nó e colocalo como raiz
-* A árvore não está vazia - Criar um novo nó e inseri-lo como folha.
+Todavia, a principal vantagem desta abordagem é utilizar-se do resultado de operações de comparação que retornam inteiros 0 para falso e 1 para verdadeiro. Desta forma, é possível evitar comparações para decidir, por exemplo, se será inserido no lado esquerdo ou direito:
 
-Abaixo segue um exemplo em que uma função é usada para inserir na **Árvore** e outra função é usada para inserir nós. É recomendável dar acesso somente à função de inserção na árvore. A função de inserir nós faz acesso interno e foi construída para ser recursiva:
 
 ```C
-void inserirNo(No* p, No* n){
-
-  if (n->chave < p->chave)
-    if (p->esquerda == NULL)
-      p->esquerda = n;
+void inserirNo(No *p, No *n)
+{
+  if (n->chave != p->chave)
+    if (p->filho[(n->chave > p->chave)] == NULL)
+      p->filho[(n->chave > p->chave)] = n;
     else
-      inserirNo(p->esquerda, n);
-  else if (n->chave > p->chave)
-    if (p->direita == NULL)
-      p->direita = n;
-    else
-      inserirNo(p->direita, n);
-   else {
-      printf("Nó já existe!");
-      free(n);
-      return;
-   }
-
+      inserirNo(p->filho[n->chave > p->chave], n);
+  else { // n->chave == p->chave
+    printf("Nó já existe!");
+    free(n);
+    return;
+  }
 }
 
-void inserir(Arvore* a, int chave){
+void inserir(Arvore *a, int chave)
+{
 
-  No* n = criarNo(chave);
+  No *n = criarNo(chave);
 
   if (a->raiz == NULL)
     a->raiz = n;
   else
     inserirNo(a->raiz, n);
-
 }
 ```
-Para facilitar a criação de um novo nó, a função criarNó foi desenvolvida para realizar a preparação de um novo nó:
+
+Compare com a operação apresentada na aula anterior e veja como a função ficou mais compacta e fazendo o mesmo papel.
+
+
+Um exemplo incompleto está disponível em:
+[exemplo 3](exemplo3/)
+
+### Estratégia 2
+
+Usar ponteiro para ponteiro para evitar criar uma função para tratar a raiz e outra para tratar os nós com recursividade.
 
 ```C
-No* criarNo(int chave){
-
-  No* n = malloc(sizeof(No));
-  n->chave = chave;
-  n->esquerda = NULL;
-  n->direita = NULL;
-
+void inserir(No** p, int chave)
+{
+  if ((*p) == NULL){
+    (*p) = criarNo(chave);
+  } else {
+    if (chave != (*p)->chave)
+      if ((*p)->filho[(chave > (*p)->chave)] == NULL)
+        (*p)->filho[(chave > (*p)->chave)] = criarNo(chave);
+      else
+        inserir(&((*p)->filho[chave > (*p)->chave]), chave);
+    else { // chave == p->chave
+      printf("Nó já existe!");
+    }
+  }
 }
 ```
+_Observação: No exemplo acima foi utilizada a estratégia 1 também, porém não é necessária._
 
-Alguns algoritmos para árvores também são bastante úteis como:
-* Menor Chave
-* Maior Chave
-* Altura da árvore **ideal**
+Um exemplo incompleto está disponível em:
+[exemplo 4](exemplo4/)
 
-Além disto, uma estratégia muito importante é o caminhamento de Euler que consiste em visitar os nós sempre à esquerda, quando isto não for possível, visitar à direita e retomar à esquerda novamente. Quando tanto a esquerda quanto a direita tiver sido visitada, retorna-se ao nó antecessor e tenta-se visitar à direita.
+## Estratégia 3
 
-Esta estratégia é útil para algoritmos como:
-* Contar nós da árvore
-* Altura de uma árvore **não ideal**
-* Listar os nós:
-  * Em pré-ordem
-  * Em ordem
-  * Em pós-ordem
-* Contar os nós de um nível específico
+É possível criar um apontador pai de um nó. Desta forma teremos um encadeamento duplo entre nós. Os apontamentos de pai devem ser mantidos nas operações de inserção, remoção, etc.
 
-Alguns dos códigos acima estão disponíveis no arquivo de exemplo no link:
-[Exemplo1](exemplo1/exemplo-arvore1.c)
+
+```C
+typedef struct no
+{
+  int chave;
+  struct no*filho[2]; // 0 - Esquerda; 1 - Direita
+  struct no* pai;
+} No;
+```
+_Observação: No exemplo acima foi utilizada a estratégia 1 também, porém não é necessária._
 

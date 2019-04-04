@@ -1,25 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "arvore.h"
 
-# AED2
-Algoritmos e Estrutura de Dados 2
+typedef struct no
+{
+  int chave;
+  struct no *esquerda;
+  struct no *direita;
+} No;
 
-## Aula 6
+void inicializar(Arvore *a)
+{
+  a->raiz = NULL;
+}
 
-Nesta aula é apresentado o conceito de busca e remoção em árvore binária **de busca**.
+int arvoreVazia(Arvore a)
+{
+  return (a.raiz == NULL);
+}
 
-A busca encarrega-se de verificar se o nó está ou não na árvore. Em alguns casos retorna o registro que é apontado pelo nó.
-```C
+int menorNo(No *n)
+{
 
-```
-Já a operação de remoção considera três Casos:
-1. O nó a ser removido não tem filhos (É uma folha)
-2. O nó a ser removido só tem um filho (ramo incompleto), assim há duas situações:
-  * Não tem filho à esquerda
-  * Nâo tem filho à direita
-3. O nó a ser removido possui dois filhos
+  if (n->esquerda == NULL)
+    return n->chave;
+  else
+    return menorNo(n->esquerda);
+}
 
-Abaixo segue um código para remover nós em uma árvore binária:
+int menor(Arvore a)
+{
+  if (arvoreVazia(a))
+    return -1;
+  else
+    return menorNo(a.raiz);
+}
 
-```C
+No *criarNo(int chave)
+{
+
+  No *n = malloc(sizeof(No));
+  n->chave = chave;
+  n->esquerda = NULL;
+  n->direita = NULL;
+
+  return n;
+
+}
+
+void inserirNo(No *p, No *n)
+{
+
+  if (n->chave < p->chave)
+    if (p->esquerda == NULL)
+      p->esquerda = n;
+    else
+      inserirNo(p->esquerda, n);
+  else if (n->chave > p->chave)
+    if (p->direita == NULL)
+      p->direita = n;
+    else
+      inserirNo(p->direita, n);
+  else
+  {
+    printf("Nó já existe!");
+    free(n);
+    return;
+  }
+}
+
+void inserir(Arvore *a, int chave)
+{
+
+  No *n = criarNo(chave);
+
+  if (a->raiz == NULL)
+    a->raiz = n;
+  else
+    inserirNo(a->raiz, n);
+}
+
+No *removerSucessor(No *p, No *n)
+{
+
+  if (n->esquerda == NULL)
+  {
+    if (n->chave < p->chave)
+      p->esquerda = n->direita;
+    else
+      p->direita = n->direita;
+    return n;
+  }
+  else
+    return removerSucessor(n, n->esquerda);
+}
+
 No *removerNo(No *p, No *n, int chave)
 {
 
@@ -82,11 +157,7 @@ No *removerNo(No *p, No *n, int chave)
     return n;
   }
 }
-```
 
-Para remover na árvore é necessário realizar as operações sobre a raiz, e desta forma, tratar os 3 casos também.
-
-```C
 int remover(Arvore *a, int chave)
 {
 
@@ -126,26 +197,3 @@ int remover(Arvore *a, int chave)
 
   return i;
 }
-
-```
-
-Para realizar a remoção no caso 3, é necessário remover o sucessor do nó na árvore e utiliza-lo na substituição do nó removido.
-```C
-No *removerSucessor(No *p, No *n)
-{
-  if (n->esquerda == NULL)
-  {
-    if (n->chave < p->chave)
-      p->esquerda = n->direita;
-    else
-      p->direita = n->direita;
-    return n;
-  }
-  else
-    return removerSucessor(n, n->esquerda);
-}
-```
-
-Alguns dos códigos acima estão disponíveis no arquivo de exemplo no link:
-[Exemplo6](exemplo2/)
-

@@ -1,0 +1,39 @@
+{
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "gcc build active file",
+      "command": "/usr/bin/gcc",
+      "args": [
+        "-g",
+        "-Wall",
+        "${workspaceFolder}/arvore.c",
+        "${workspaceFolder}/exemplo-arvore3.c",
+        "-o",
+        "${workspaceFolder}/${workspaceFolderBasename}"
+      ],
+      "options": {
+        "cwd": "/usr/bin"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "shell",
+      "label": "clang build active file",
+      "command": "/usr/bin/clang",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}"
+      ],
+      "options": {
+        "cwd": "/usr/bin"
+      }
+    }
+  ],
+  "version": "2.0.0"
+}
