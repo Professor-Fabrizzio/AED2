@@ -118,6 +118,7 @@ As funções da árvore podem ser iterativas, ao invés de recursivas.
 Assim, a manipulação dos nós é feita em uma função com auxílio de laços.
 Segue um exemplo da função de inserção:
 
+```C
 void inserir(Arvore *a, int chave)
 {
 
