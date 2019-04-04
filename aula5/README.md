@@ -7,6 +7,7 @@ Algoritmos e Estrutura de Dados 2
 Nesta aula é apresentado como funciona ponteiros em listas e árvores com auxilio do Data Display Debuger (DDD) para Linux.
 
 ![DDD](ddd.jpeg)
+
 Maiores detalhes disponíveis em:
 [Site do DDD](https://www.gnu.org/software/ddd/)
 
