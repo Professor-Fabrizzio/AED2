@@ -19,8 +19,8 @@ Avalição | Data
 
 ## Cronograma de Aulas
 
-:Aula:| Conteúdo Previsto | Material
------|----------------------------------------------|---------------------
+Aula | Conteúdo Previsto | Material
+:---:| :---: | :---:
 1    | Apresentação e Revisão de Linguagem C e AED1 | [Material](aula1/)
 2    | Introdução às árvores                        | [Material](aula2/)
 3    | Árvores Binárias e sua representação         | [Material](aula3/)
