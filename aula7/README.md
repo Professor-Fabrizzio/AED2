@@ -150,3 +150,16 @@ void inserir(Arvore *a, int chave)
 Um exemplo incompleto está disponível em:
 [exemplo 6](exemplo6/)
 
+_Observação: Algumas otimizações realizadas neste código como, a chamada do método criar nó, pode ser adotada em qualquer das implementações anteriores.
+
+## Atividades
+
+1. Implementar com a *Estratégia 1* os métodos de remover, mínimo, máximo, busca, contagem, listagem em pré, in e pos-ordem.
+
+2. Implementar com a *Estratégia 2* os métodos de remover, mínimo, máximo, busca, contagem, listagem em pré, in e pos-ordem.
+
+3. Implementar com a *Estratégia 3* os métodos de remover, mínimo, máximo, busca, contagem, listagem em pré, in e pos-ordem.
+
+4. Implementar com a *Estratégia 4* os métodos de remover, mínimo, máximo, busca, contagem, listagem em pré, in e pos-ordem.
+
+_Submissão via SIGA-A. Link será aberto em breve._
