@@ -17,6 +17,13 @@ Já a operação de remoção considera três Casos:
   * Nâo tem filho à direita
 3. O nó a ser removido possui dois filhos
 
+Abaixo segue um código para remover em uma árvore binária:
+
+```C
+
+```
+
+
 Alguns dos códigos acima estão disponíveis no arquivo de exemplo no link:
-[Exemplo1](exemplo1/exemplo-arvore1.c)
+[Exemplo6](exemplo1/exemplo-arvore1.c)
 
