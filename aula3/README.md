@@ -89,6 +89,8 @@ Alguns algoritmos para árvores também são bastante úteis como:
 
 Além disto, uma estratégia muito importante é o caminhamento de Euler que consiste em visitar os nós sempre à esquerda, quando isto não for possível, visitar à direita e retomar à esquerda novamente. Quando tanto a esquerda quanto a direita tiver sido visitada, retorna-se ao nó antecessor e tenta-se visitar à direita.
 
+![Caminhamento de Euler](euler.png)
+
 Esta estratégia é útil para algoritmos como:
 * Contar nós da árvore
 * Altura de uma árvore **não ideal**
