@@ -109,3 +109,43 @@ typedef struct no
 ```
 _Observação: No exemplo acima foi utilizada a estratégia 1 também, porém não é necessária._
 
+Um exemplo incompleto está disponível em:
+[exemplo 5](exemplo5/)
+
+## Estratégia 4
+
+As funções da árvore podem ser iterativas, ao invés de recursivas.
+Assim, a manipulação dos nós é feita em uma função com auxílio de laços.
+Segue um exemplo da função de inserção:
+
+void inserir(Arvore *a, int chave)
+{
+
+  if (a->raiz == NULL)
+    a->raiz = criarNo(chave);
+  else{
+      No* aux = a->raiz;
+      while (1) {
+        if (chave < aux->chave){
+          if (aux->esquerda == NULL){
+            aux->esquerda = criarNo(chave);
+            break;
+          }else
+            aux = aux->esquerda;
+        } else if (chave > aux->chave){
+          if (aux->direita == NULL){
+            aux->direita = criarNo(chave);
+            break;
+          } else
+            aux = aux->direita;
+        } else{
+          printf("Nó já existe!");
+          break;
+        }
+    }
+  }
+}
+```
+Um exemplo incompleto está disponível em:
+[exemplo 6](exemplo6/)
+

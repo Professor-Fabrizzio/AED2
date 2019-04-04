@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "gcc build active file",
+      "command": "/usr/bin/gcc",
+      "args": [
+        "-g",
+        "-Wall",
+        "${workspaceFolder}/arvore.c",
+        "${workspaceFolder}/exemplo-arvore6.c",
+        "-o",
+        "${workspaceFolder}/${workspaceFolderBasename}"
+      ],
+      "options": {
+        "cwd": "/usr/bin"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ],
+  "version": "2.0.0"
+}
