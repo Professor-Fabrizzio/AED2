@@ -28,8 +28,8 @@ Destaco que tanto a inserção quanto a remoção provocam desbalanceamentos. As
 ## Operações de rotação
 As rotações podem ser realizadas para a direita ou esquerda, conforme o desbalanceamento encontrado.
 
-![Balanceamento para esquerda](rsesq.jpg)
-![Balanceamento para a direita](rsdir.jpg)
+![Balanceamento para esquerda](rsesq.gif)
+![Balanceamento para a direita](rsdir.gif)
 
 Todavia, há casos em que essas rotações ao inves de corrigir o nó, acaba apenas por espelha-lo.
 
@@ -37,8 +37,8 @@ Todavia, há casos em que essas rotações ao inves de corrigir o nó, acaba ape
 
 Assim, é necessário realizar rotações duplas, que consistem de rotacionar o filho da direção desejada para a direção oposta para então realizar a rotação do nó para a direção desejada.
 
-![Balanceamento duplo para esquerda](rdesq.jpg)
-![Balanceamento duplo para a direita](rddir.jpg)
+![Balanceamento duplo para esquerda](rdesq.gif)
+![Balanceamento duplo para a direita](rddir.gif)
 
 
 

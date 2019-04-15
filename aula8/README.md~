@@ -31,6 +31,16 @@ As rotações podem ser realizadas para a direita ou esquerda, conforme o desbal
 ![Balanceamento para esquerda](rsesq.jpg)
 ![Balanceamento para a direita](rsdir.jpg)
 
+Todavia, há casos em que essas rotações ao inves de corrigir o nó, acaba apenas por espelha-lo.
+
+![Falha de balanceamento](treerotation.png)
+
+Assim, é necessário realizar rotações duplas, que consistem de rotacionar o filho da direção desejada para a direção oposta para então realizar a rotação do nó para a direção desejada.
+
+![Balanceamento duplo para esquerda](rdesq.jpg)
+![Balanceamento duplo para a direita](rddir.jpg)
+
+
 
 ```C
 #define esquerda 0
