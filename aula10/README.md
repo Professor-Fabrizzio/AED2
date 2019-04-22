@@ -2,7 +2,7 @@
 # AED2
 Algoritmos e Estrutura de Dados 2
 
-## Aula 9
+## Aula 10
 
 Nesta aula é apresentada a Árvore Rubro Negra.
 

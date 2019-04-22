@@ -34,6 +34,9 @@ Casos:
 3. Se o nó tem 2 filhos:
   1. troca o valor a ser removido com o sucessor ou predecessor e então realiza-se a remoção para 1 ou para dois.
 
+Observação: O tratamento das remoções na árvore rubro-negra, aqui descritas, estão simplificadas.
+Sugiro a leitura dos slides de auxílio para aprofundar em seus aspectos.
+
 ### Visualizador para auxílio
 
 [Visualizador](../visualizador/gt.jar)
